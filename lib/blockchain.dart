@@ -42,7 +42,7 @@ class BlockChain {
     print(result);
     print("Patient Details Updated Successfully!!!");
   }
-
+//setMedicine(String patientId, String medicineName, String dosage) async {
   setMedicine(String medicineName, String dosage, String patientId) async {
     httpClient = Client();
     ethClient = Web3Client(DotEnv().env['API'], httpClient);
@@ -58,11 +58,11 @@ class BlockChain {
         Transaction.callContract(
             contract: contract,
             function: _setMedicine,
-            parameters: [medicineName, dosage, patientId]),
-        fetchChainIdFromNetworkId: true);
+            parameters: [patientId, medicineName, dosage]),
+            fetchChainIdFromNetworkId: true);
     print("Medicine Details Updated Successfully!!!");
   }
-
+//setRecord(String patientId, String description, String date) async {
   setRecord(String description, String date, String patientId) async {
     httpClient = Client();
     ethClient = Web3Client(DotEnv().env['API'], httpClient);
@@ -78,8 +78,8 @@ class BlockChain {
         Transaction.callContract(
             contract: contract,
             function: _setRecord,
-            parameters: [description, date, patientId]),
-        fetchChainIdFromNetworkId: true);
+            parameters: [patientId, description, date]),
+            fetchChainIdFromNetworkId: true);
     print("Patient Record Details Updated Successfully!!!");
   }
 

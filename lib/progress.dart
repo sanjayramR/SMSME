@@ -200,7 +200,7 @@ class _ProgresspageState extends State<Progresspage> {
                               print("\n"+patientid+"\n"+description+"\n"+datectl.text);
                               blockChain.setRecord(description,datectl.text,patientid);
                                 dialogBox(
-                                    "Medicine details added successfully",
+                                    "Patient's Progress Updated successfully",
                                     false,
                                     (_width/100)*75,
                                     (_width/100)*75,

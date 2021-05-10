@@ -84,30 +84,50 @@ class _PatientsdetailspageState extends State<Patientsdetailspage> {
                                   (result!=null)?Text(
                                     "Patient Name : ${result[0]}",
                                     style: TextStyle(fontSize: 18.0),
-                                    textAlign: TextAlign.center,
+                                   // textAlign: TextAlign.center,
+                                  ):Text(""),
+                                  SizedBox(height: 5),
+                                  (result!=null)?Text(
+                                    "Patient Age : ${result[1]}",
+                                    style: TextStyle(fontSize: 18.0),
+                                   // textAlign: TextAlign.center,
                                   ):Text(""),
                                   SizedBox(height: 5),
                                   (result!=null)?Text(
                                     "Gender :${result[2]}",
                                     style: TextStyle(fontSize: 18.0),
-                                    textAlign: TextAlign.center,
+                                    //textAlign: TextAlign.center,
                                   ):Text(""),
                                   SizedBox(height: 5),
                                   (result!=null)?Text(
-                                    "Medicine given: ${result[3]}",
+                                    "Medicine given: ${result[3][0][0]}",
                                     style: TextStyle(fontSize: 18.0),
-                                    textAlign: TextAlign.center,
+                                    //textAlign: TextAlign.center,
                                   ):Text(""),
                                   SizedBox(height: 5),
                                   (result!=null)?Text(
-                                    "Progress : ${result[4]}",
+                                    "Dosage: ${result[3][0][1]}",
                                     style: TextStyle(fontSize: 18.0),
-                                    textAlign: TextAlign.center,
+                                    //textAlign: TextAlign.center,
+                                  ):Text(""),
+                                  SizedBox(height: 5),
+                                  (result!=null)?Text(
+                                    "Progress : ${result[4][0][0]}",
+                                    style: TextStyle(fontSize: 18.0),
+                                    //textAlign: TextAlign.center,
+                                  ):Text(""),
+                                  SizedBox(height: 5),
+                                  (result!=null)?Text(
+                                    "Last Consultion : ${result[4][0][1]}",
+                                    style: TextStyle(fontSize: 18.0),
+                                    //textAlign: TextAlign.center,
                                   ):Text(""),
                                 ],
                               ),
                             )),
-                      ):Container(),
+                      ):Container(
+                        child: Text("Invalid Patient Id",style: TextStyle(color: Colors.red,),)
+                      ),
                     SizedBox(
                         width: 24
                       ),
@@ -147,7 +167,9 @@ class _PatientsdetailspageState extends State<Patientsdetailspage> {
                               dynamic data = await blockChain.getPatientDetails(patientid);
                               setState(()  {
                               result = data;
-                              print("/"+result[0]);
+                              if(result[0]=="")
+                                result = null;
+                              
                               });
                                                               
                             }

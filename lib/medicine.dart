@@ -72,15 +72,8 @@ class _MedicinepageState extends State<Medicinepage> {
                 // 2
                 TextFormField(
                   validator: (value) {
-                    
-                      Pattern pattern =
-                                      r'^[ A-Za-z]+(?:[ _-][A-Za-z]+)*$';
-                    RegExp regex = new RegExp(pattern);
                     if (value.isEmpty)
                       return " Medicine Name can't be empty";
-                    else if (!regex.hasMatch(value))
-                      return 'Invalid  Medicine Name';
-                    return null;
                     
                   },
                   decoration: InputDecoration(

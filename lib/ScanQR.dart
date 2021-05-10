@@ -24,8 +24,7 @@ class _ScanQRState extends State<ScanQR> {
   @override
   void initState() {
     super.initState();
-    blockChain.getPatientDetails("1");
-  }
+      }
 
   @override
   Widget build(BuildContext context) {
